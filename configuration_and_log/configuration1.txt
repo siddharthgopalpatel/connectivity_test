@@ -1,0 +1,8 @@
+ubuntuhost1_apache,ansible_practice_ubuntuhost_1:80
+ubuntuhost2_apache,ansible_practice_ubuntuhost_2:80
+amazonhost1_apache,ansible_practice_amazonhost_1:80
+amazonhost2_apache,ansible_practice_amazonhost_1:80
+ubuntuhost1_ssh,ansible_practice_ubuntuhost_1:22
+ubuntuhost2_ssh,ansible_practice_ubuntuhost_2:22
+amazonhost1_ssh,ansible_practice_amazonhost_1:22
+amazonhost2_ssh,ansible_practice_amazonhost_2:22
