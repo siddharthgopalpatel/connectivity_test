@@ -3,7 +3,7 @@ import re
 import time
 
 def url_service_function():
-    x = subprocess.check_output("cat configuration_and_log/configuration_url_service.txt | grep -v '#' | sed '/^$/d;s/[[:blank:]]//g' > configuration_and_log/configuration.txt", shell=True)
+    x = subprocess.check_output("cat configuration_and_log/configuration_url_service.txt | grep -v '^#' | sed '/^$/d;s/[[:blank:]]//g' > configuration_and_log/configuration.txt", shell=True)
 
     # Using readlines()
     file1 = open('configuration_and_log/configuration.txt', 'r')
@@ -50,7 +50,7 @@ def url_service_function():
             else:
                 s5 = re.compile(r'[/][/](.*)[/]')
                 m5 = s5.search(a1)
-                s6 = re.compile(r'[/][/][a-z0-9]+[.][a-z]+[.][a-z]+')
+                s6 = re.compile(r'[/][/][a-z0-9]+[.][a-z]+[.][a-z.]+')
                 m6 = s6.search(a1)
                 if m6:
                     #print(m5.group())
@@ -165,12 +165,21 @@ def url_service_function():
             m15 = s15.search(a1)
             if m15:
                 host = m15.group(1)
-                print("Host "+ str(host_num) +" ==> "+ host +"")
-                port = '25'
-                print("Port ==> "+ port +"")
-                y = subprocess.call("nc -vz -w 5 "+ host +" "+ port +"", shell=True)
-                print("********************Done****************")
-                time.sleep(3)
+                if ( host == 'vzsmtpalt.verizon.com'):
+                    print("Host "+ str(host_num) +" ==> "+ host +"")
+                    port = '25'
+                    print("Port ==> "+ port +"")
+                    y = subprocess.call("nc -vz -w 5 "+ host +" "+ port +"", shell=True)
+                    print("********************Done****************")
+                    time.sleep(3)
+
+                else:
+                    print("Host "+ str(host_num) +" ==> "+ host +"")
+                    port = '22'
+                    print("Port ==> "+ port +"")
+                    y = subprocess.call("nc -vz -w 5 "+ host +" "+ port +"", shell=True)
+                    print("********************Done****************")
+                    time.sleep(3)
                 continue
 
     print("********************Completed****************")

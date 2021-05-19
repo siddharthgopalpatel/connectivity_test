@@ -35,3 +35,27 @@ faulty_service14 = https://webserver14:80/
 faulty_service15 = https://webserver15
 faulty_service16=https://webserver16-uat.ebiz.verizon.com/inventory-interface-service/entitites/getEntitiesDeatils/onemore
 SMTP_SERVER = vzsmtplat.verizon.com
+
+E911_ADDORDERQUERY_WEBSERVICE_URL=https://vv911ws.vpc.verizon.com/VV911WS/e911AddrOrderQuery.asmx
+
+# IPTS primary and DR server
+IPTS_PRIMARY_SERVER=iptsns2.verizon.com
+
+# IPSTAR server
+IPSTAR_PRIMARY_SERVER=ipstars.verizon.com
+
+# BQA server
+BQA_PRIMARY_SERVER=vzbpymi.vzbi.com
+BQA_DR_SERVER=vzbpymi.vzbi.com
+
+# LDTRS server
+CALNET_AGENCYCODE_TRANS_LDTRS_SERVER=tldvpa3.vzbi.com
+
+# CMDB server
+GSAM_DAILY_CMDB_SERVER=dt2fdpw1.verizon.com
+
+# VZBII server
+VZBII_LOC_PRIMARY_SERVER=vzbiibatch.verizon.com
+
+# SMTP server
+STMP_SERVER=vzsmtpalt.verizon.com
