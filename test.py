@@ -1,6 +1,22 @@
 import subprocess
 import re
 import time
+import sys
+
+def saving_logs(host,port):
+    # create two files to hold the output and errors, respectively
+    with open('configuration_and_log/logs/output.txt','a+') as fout:
+        with open('configuration_and_log/logs/error.txt','a+') as ferr:
+            out=subprocess.call(["nc -vz -w 5 "+ host +" "+ port +""],shell=True,stdout=fout,stderr=ferr)
+            # reset file to read from it
+            fout.seek(0)
+            # save output (if any) in variable
+            output=fout.read()
+
+            # reset file to read from it
+            ferr.seek(0)
+            # save errors (if any) in variable
+            errors = ferr.read()
 
 def url_service_function():
     x = subprocess.check_output("cat configuration_and_log/configuration_url_service.txt | grep -v '^#' | sed '/^$/d;s/[[:blank:]]//g' > configuration_and_log/configuration.txt", shell=True)
@@ -218,6 +234,7 @@ def manual_change_function():
         print("Port ==> "+ port +"")
 
         y = subprocess.call("nc -vz -w 5 "+ host +" "+ port +"", shell=True)
+        saving_logs(host,port)
 
         print("********************Done****************")
         time.sleep(3)

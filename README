@@ -19,3 +19,7 @@ Enter 2 if your configuration containing manual inputs type.
 For Example - some_service_type,some_server_name:port
 
 Enter 3 if you wish to input the host name and port from key borad one by one
+
+
+
+# rm -rf configuration_and_log/logs/*
